@@ -1,0 +1,42 @@
+﻿@model Practica2.Models.Leonidas
+
+@{
+    ViewBag.Title = "GuiaLeonidas";
+}
+
+<h2>Guia de Leonidas</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizonal">
+        <div class="form-group">
+            @Html.Label("Distinatario:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.destinatario, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Destino:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DropDownListFor(model => model.destino, Model.destinos, new { @class = "form-select col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("TM:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.tm, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Flete:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("flete", @ViewBag.flete as string, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Seguro:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("seguro", ViewBag.seguro as string, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <div class="form-group">
+            @Html.Label("Monto:", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("monto", ViewBag.monto as string, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.ActionLink("Nuevo", "ActionProccess", null, new { @class = "btn btn-info" })
+            <input type="submit" value="Procesar" class="btn btn-success" />
+        </div>
+    </div>
+}
